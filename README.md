@@ -1,19 +1,15 @@
 # TinEye API PHP Client
 
-[![Latest Version on Packagist][ico-version]][link-packagist]
-[![Software License][ico-license]](LICENSE.md)
-[![Total Downloads][ico-downloads]][link-downloads]
-
 **tineye\api** is a PHP client library for the TinEye API. The TinEye API
 is a TinEye paid search alternative for professional, commercial or high-volume users.
-See `<https://api.tineye.com/>`\_ for more information.
+See https://api.tineye.com/ for more information.
 
 ## Quick Start
 
 Install via [Composer](https://getcomposer.org/)
 
 ```bash
-$ composer require tineye/api
+$ composer require tineye/tineye-api
 ```
 
 ### Run a Search
