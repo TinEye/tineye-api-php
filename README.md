@@ -1,39 +1,58 @@
 # TinEye API PHP Client
 
-**tineye-api** is a PHP library for [TinEye API](https://api.tineye.com). The TinEye API
-is a paid search alternative for professional, commercial or high-volume users of TinEye.
+**tineye-api** is a PHP library for the [TinEye API](https://api.tineye.com). The TinEye API
+is a paid reverse image search solution for professional, commercial or high-volume users of TinEye.
 
-## Quick Start
+# Contents
+- [ Installation ](#installation)
+- [ Getting started ](#getting-started)
+- [ Methods ](#methods)
+    - [ Common parameters ](#common-parameters)
+    - [ Search using an image URL ](#search-using-an-image-url)
+    - [ Search using image data ](#search-using-image-data)
+    - [ Get remaining searches ](#get-remaining-searches)
+    - [ Get number of indexed images ](#get-number-of-indexed-images)
+    - [ Get the HTTP client ](#get-the-http-client)
+- [ Support ](#support)
+- [ Testing ](#testing)
+- [ License ](#license)
 
-Install via [Composer](https://getcomposer.org/).
 
-```bash
+# Installation
+
+Install via [Composer](https://getcomposer.org/). If composer is installed, run the following from your shell:
+
+```shell
 $ composer require tineye/tineye-api
 ```
 
-### Run a Search
+# Getting started
 
-To search an image with the TinEye API sandbox:
-
-```php
-$tineyeapi = new TinEyeApi();
-$search_result = $tineyeapi->searchUrl('https://tineye.com/images/meloncat.jpg');
-print_r($search_result);
-```
-
-The sandbox only returns a stock set of results. You can find more information about the TinEye sandbox [here](https://services.tineye.com/developers/tineyeapi/sandbox.html).
-
-To search an image with tineye-api with an account:
+Once you've installed the library, you can instantiate a `TinEyeApi` object with your private and public keys:
 
 ```php
 $tineyeapi = new TinEyeApi(<Private_API_Key>,<Public_API_Key>);
-$search_result = $tineyeapi->searchUrl('https://tineye.com/images/meloncat.jpg');
-print_r($search_result);
 ```
 
-## Methods
+If you don't have an account yet, you can still test out the library using our [API sandbox](https://services.tineye.com/developers/tineyeapi/sandbox.html) by instantiating the `TinEyeApi` object
+with no arguments:
 
-Each search method(`searchUrl` and `searchData`) takes an optional parameter `params` that takes an associative array with any of these options:
+```php
+$tineyeapi = new TinEyeApi();
+```
+
+Note that the API sandbox will not return real results; all results will be the same image of a cat.
+
+Once you've created your `TinEyeApi` object you can start searching. You can submit an image using either an
+[image URL](#search-using-an-image-url) or by [submitting image data](#search-using-image-data)
+by uploading an image file. You can also [check the number of remaining searches](#get-remaining-searches)
+in your account or [check the number of images in the TinEye index](#get-number-of-indexed-images).
+
+# Methods
+
+## Common parameters
+
+Each search method (`searchUrl` and `searchData`) takes an optional parameter `params` that takes an associative array with any of these options:
 
 ```php
 $params = [
@@ -48,7 +67,7 @@ $params = [
 
 For more information on possible settings please visit the [TinEye API documention](https://services.tineye.com/developers/tineyeapi/overview.html#general-arguments).
 
-### searchUrl
+## Search using an image URL
 
 Use this method to have TinEye download an image URL and search it against the TinEye index.
 
@@ -65,7 +84,7 @@ $tineyeapi = new TinEyeApi($api_private_key, $api_public_key);
 $search_result = $tineyeapi->searchUrl('https://tineye.com/images/meloncat.jpg');
 ```
 
-### searchData
+## Search using image data
 
 Use this method to upload an image to TinEye and search it against the TinEye index.
 
@@ -87,7 +106,7 @@ $search_result = $tineyeapi->searchData(
 );
 ```
 
-### remainingSearches
+## Get remaining searches
 
 Use this method to get the number and status of remaining search bundles.
 
@@ -100,7 +119,7 @@ $tineyeapi = new TinEyeApi($api_private_key, $api_public_key);
 $search_bundles = $tineyeapi->remainingSearches();
 ```
 
-### imageCount
+## Get number of indexed images
 
 Use this method to get the number and images currently indexed by TinEye
 
@@ -113,9 +132,9 @@ $tineyeapi = new TinEyeApi($api_private_key, $api_public_key);
 $search_bundles = $tineyeapi->imageCount();
 ```
 
-### getClient
+## Get the HTTP client
 
-This method allows access to the wrapped GuzzleHttp Client. More information is available at [GuzzleHttp](https://github.com/guzzle/guzzle)
+This method allows access to the wrapped GuzzleHttp client. More information is available at [GuzzleHttp](https://github.com/guzzle/guzzle).
 
 ```php
 /**
@@ -126,11 +145,11 @@ $tineyeapi = new TinEyeApi($api_private_key, $api_public_key);
 $guzzle_client = $tineyeapi->getClient();
 ```
 
-## Support
+# Support
 
 Please send comments, recommendations, and bug reports to support@tineye.com.
 
-## Testing
+# Testing
 
 Tests are located in the `/tests` folder and use [PHPunit](https://phpunit.de/).
 
@@ -138,6 +157,6 @@ Tests are located in the `/tests` folder and use [PHPunit](https://phpunit.de/).
 $ composer test
 ```
 
-## License
+# License
 
 Licensed under the MIT License (MIT). Please see [License File](LICENSE.md) for more information.
