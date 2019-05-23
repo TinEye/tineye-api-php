@@ -1,7 +1,7 @@
 {
   "name": "tineye/tineye-api",
   "type": "library",
-  "description": "Library to access the TinEye API for reverse image search",
+  "description": "Library to reverse image search using the TinEye API",
   "keywords": [
     "TinEye API",
     "Search by Image",
