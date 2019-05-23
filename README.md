@@ -1,4 +1,4 @@
-# TinEye API PHP Client
+# TinEye API PHP Library
 
 **tineye-api** is a PHP library for the [TinEye API](https://api.tineye.com). The TinEye API
 is a paid reverse image search solution for professional, commercial or high-volume users of TinEye.
