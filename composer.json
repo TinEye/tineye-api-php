@@ -3,10 +3,11 @@
   "type": "library",
   "description": "This allows you to make requests to the TinEye Image Search API.",
   "keywords": [
-    "tineye",
-    "api",
-    "image",
-    "search"
+    "TinEye API",
+    "Search by Image",
+    "Reverse Image Search",
+    "Find Duplicates",
+    "Computer Vision"
   ],
   "homepage": "https://tineye.com",
   "license": "MIT",
