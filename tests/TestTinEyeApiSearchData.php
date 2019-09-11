@@ -28,6 +28,21 @@ class TestTinEyeApiSearchData extends \PHPUnit\Framework\TestCase
     }
 
     /**
+     * Test that the file name is url encoded and lower cased
+     */
+    public function testFileNameEncoded()
+    {
+        $tineyeapi = new TinEyeApi();
+        $file_name = "MeL ONca-t1.jpg";
+        $search_result = $tineyeapi->searchData(
+            fopen('tests/meloncat.jpg', 'r'),
+            $file_name
+        );
+        $this->assertTrue($search_result['code'] === 200);
+        $this->assertTrue(sizeof($search_result['results']['matches']) > 1);
+    }
+
+    /**
      * Test that an error is thrown when a request is made to a non existant tld
      */
     public function testConnectionException()

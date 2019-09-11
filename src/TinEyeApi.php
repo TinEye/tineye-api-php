@@ -243,6 +243,9 @@ class TinEyeApi
         $boundary = "---------------------" . md5(mt_rand() . microtime());
         $contenttype_header = "multipart/form-data; boundary=$boundary";
 
+        //Lower case and urlencode file_name
+        $file_name = strtolower(rawurlencode($file_name));
+
         //Compose api string to sign
         $api_sig_raw = $this->api_private_key . "POST" . $contenttype_header . $file_name . $date . $nonce;
         $api_sig_raw .= $this->api_url . $method . "/" . $signature_options;
