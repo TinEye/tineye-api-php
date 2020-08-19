@@ -3,6 +3,9 @@
 declare (strict_types = 1);
 namespace tineye\api;
 
+/**
+ * @coversDefaultClass \tineye\api\TinEyeApi
+ */
 class TestTinEyeApiImageCount extends \PHPUnit\Framework\TestCase
 {
     /**
@@ -10,7 +13,6 @@ class TestTinEyeApiImageCount extends \PHPUnit\Framework\TestCase
      */
     public function testImagCountMethod()
     {
-
         $tineyeapi = new TinEyeApi();
         $search_result = $tineyeapi->imageCount();
         $this->assertTrue($search_result['code'] === 200);

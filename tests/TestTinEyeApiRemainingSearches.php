@@ -6,6 +6,9 @@ namespace tineye\api;
 
 use GuzzleHttp\Exception\ConnectException;
 
+/**
+ * @coversDefaultClass \tineye\api\TinEyeApi
+ */
 class TestTinEyeApiRemainingSearches extends \PHPUnit\Framework\TestCase
 {
     /**
@@ -28,7 +31,7 @@ class TestTinEyeApiRemainingSearches extends \PHPUnit\Framework\TestCase
     {
         $tineyeapi = new TinEyeApi('Not a Key', 'Also Not a Key', [], 'Https://thisisnotcorrect.tineye');
         try {
-            $search_result = $tineyeapi->remainingSearches();
+            $tineyeapi->remainingSearches();
         } catch (ConnectException $e) {
             $this->assertNotNull($e);
         }
