@@ -6,6 +6,9 @@ namespace tineye\api;
 
 use \GuzzleHttp\Exception\ClientException;
 
+/**
+ * @coversDefaultClass \tineye\api\TinEyeApi
+ */
 class TestTinEyeApiSearchUrl extends \PHPUnit\Framework\TestCase
 {
     const MELON_CAT_URL = 'https://tineye.com/images/meloncat.jpg';
@@ -28,7 +31,7 @@ class TestTinEyeApiSearchUrl extends \PHPUnit\Framework\TestCase
     {
         $tineyeapi = new TinEyeApi('Not a Key', 'Also Not a Key');
         try {
-            $search_result = $tineyeapi->searchUrl(self::MELON_CAT_URL);
+            $tineyeapi->searchUrl(self::MELON_CAT_URL);
         } catch (ClientException $e) {
             $this->assertNotNull($e);
         }

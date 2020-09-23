@@ -11,7 +11,6 @@ namespace tineye\api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\MultipartStream;
-use \JsonException;
 
 // Sandbox keys are used as defaults
 const SANDBOX_PRIVATE_KEY = '6mm60lsCNIB,FwOWjJqA80QZHh9BMwc-ber4u=t^';
@@ -24,7 +23,6 @@ const API_BASE_URL = 'https://api.tineye.com/rest/';
  */
 class TinEyeApi
 {
-
     // Private/Public keys are defaulted to sand box keys
     private $api_private_key;
     private $api_public_key;
@@ -88,7 +86,6 @@ class TinEyeApi
      */
     public function searchUrl($url, $params = null)
     {
-
         //Push image url into request params
         if ($params === null) {
             $params = array('image_url' => $url);
@@ -106,7 +103,7 @@ class TinEyeApi
         // Decode Response
         $parsed_json = json_decode($res->getBody(), true);
         if ($parsed_json === null) {
-            throw new JsonException("Failed to parse: " . $res->getBody());
+            throw new TinEyeJsonParseException($res->getBody());
         }
 
         return $parsed_json;
@@ -140,7 +137,7 @@ class TinEyeApi
         // Decode Response
         $parsed_json = json_decode($res->getBody(), true);
         if ($parsed_json === null) {
-            throw new JsonException("Failed to parse: " . $res->getBody());
+            throw new TinEyeJsonParseException($res->getBody());
         }
 
         return $parsed_json;
@@ -152,7 +149,6 @@ class TinEyeApi
      */
     public function remainingSearches()
     {
-
         $options = $this->generateGetRequestParams('remaining_searches', uniqid(), time());
 
         // // Call API
@@ -163,7 +159,7 @@ class TinEyeApi
         // Decode Response
         $parsed_json = json_decode($res->getBody(), true);
         if ($parsed_json === null) {
-            throw new JsonException("Failed to parse: " . $res->getBody());
+            throw new TinEyeJsonParseException($res->getBody());
         }
 
         return $parsed_json;
@@ -175,7 +171,6 @@ class TinEyeApi
      */
     public function imageCount()
     {
-
         $options = $this->generateGetRequestParams('image_count', uniqid(), time());
 
         // // Call API
@@ -186,7 +181,7 @@ class TinEyeApi
         // Decode Response
         $parsed_json = json_decode($res->getBody(), true);
         if ($parsed_json === null) {
-            throw new JsonException("Failed to parse: " . $res->getBody());
+            throw new TinEyeJsonParseException($res->getBody());
         }
 
         return $parsed_json;
@@ -198,7 +193,6 @@ class TinEyeApi
      */
     private function generateGetRequestParams($method, $nonce, $date, $params = null)
     {
-
         //Push image url into request params
         if ($params === null) {
             $params = array();

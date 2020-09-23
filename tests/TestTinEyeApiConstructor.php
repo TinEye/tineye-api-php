@@ -3,14 +3,16 @@
 declare (strict_types = 1);
 namespace tineye\api;
 
-class TestTinEyeApi extends \PHPUnit\Framework\TestCase
+/**
+ * @coversDefaultClass \tineye\api\TinEyeApi
+ */
+class TestTinEyeApiConstructor extends \PHPUnit\Framework\TestCase
 {
     /**
      * Test that the Default params can preform a sandbox search
      */
     public function testSandBoxKeysUsedAsDefault()
     {
-
         $tineyeapi = new TinEyeApi();
         $search_result = $tineyeapi->searchUrl('https://tineye.com/images/meloncat.jpg');
         $this->assertTrue($search_result['code'] === 200);
@@ -38,7 +40,7 @@ class TestTinEyeApi extends \PHPUnit\Framework\TestCase
         $tineyeapi = new TinEyeApi(
             SANDBOX_PRIVATE_KEY,
             SANDBOX_PUBLIC_KEY,
-            $guzzle_client_options = [
+            [
                 'headers' => [
                     'User-Agent' => 'TEST_USER_AGENT',
                 ],
