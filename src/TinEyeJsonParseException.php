@@ -3,7 +3,7 @@
 /**
  * This class provides a custom parsing exception
  *
- * @link https://www.tineye.com
+ * @link https://tineye.com
  */
 
 namespace tineye\api;

@@ -28,14 +28,14 @@ $ composer require tineye/tineye-api
 
 # Getting started
 
-Once you've installed the library, you can instantiate a `TinEyeApi` object with your private and public keys:
+Once you've installed the library, you can instantiate a `TinEyeApi` object with your API key:
 
 ```php
 <?php
-$tineyeapi = new tineye\api\TinEyeApi(<Private_API_Key>,<Public_API_Key>);
+$tineyeapi = new tineye\api\TinEyeApi($api_key);
 ```
 
-If you don't have an account yet, you can still test out the library using our [API sandbox](https://services.tineye.com/developers/tineyeapi/sandbox.html) by instantiating the `TinEyeApi` object
+If you don't have an account yet, you can still test out the library using our [API sandbox](https://services.tineye.com/developers/tineyeapi/sandbox) by instantiating the `TinEyeApi` object
 with no arguments:
 
 ```php
@@ -68,7 +68,7 @@ $params = [
 ];
 ```
 
-For more information on possible settings please visit the [TinEye API documention](https://services.tineye.com/developers/tineyeapi/overview.html#general-arguments).
+For more information on possible settings please visit the [TinEye API documention](https://services.tineye.com/developers/tineyeapi/api_reference#search).
 
 ## Search using an image URL
 
@@ -84,7 +84,7 @@ Use this method to have TinEye download an image URL and search it against the T
 * @return Array Multidimensional Array of the returned JSON
 */
 
-$tineyeapi = new tineye\api\TinEyeApi($api_private_key, $api_public_key);
+$tineyeapi = new tineye\api\TinEyeApi($api_key);
 $search_result = $tineyeapi->searchUrl('https://tineye.com/images/meloncat.jpg');
 ```
 
@@ -104,7 +104,7 @@ Use this method to upload an image to TinEye and search it against the TinEye in
 *
 * @return Array Multidimensional Array of the returned JSON
 */
-$tineyeapi = new tineye\api\TinEyeApi($api_private_key, $api_public_key);
+$tineyeapi = new tineye\api\TinEyeApi($api_key);
 $search_result = $tineyeapi->searchData(
     fopen('./tests/meloncat.jpg', 'r'),
     'meloncat.jpg'
@@ -121,7 +121,7 @@ Use this method to get the number and status of remaining search bundles.
 * Returns information on search bundles 
 * @return Array Multidimensional array of the returned JSON
 */
-$tineyeapi = new tineye\api\TinEyeApi($api_private_key, $api_public_key);
+$tineyeapi = new tineye\api\TinEyeApi($api_key);
 $search_bundles = $tineyeapi->remainingSearches();
 ```
 
@@ -135,7 +135,7 @@ Use this method to get the number and images currently indexed by TinEye
 * Returns the count of images in the TinEye index 
 * @return Array Multidimensional array of the returned JSON
 */
-$tineyeapi = new tineye\api\TinEyeApi($api_private_key, $api_public_key);
+$tineyeapi = new tineye\api\TinEyeApi($api_key);
 $search_bundles = $tineyeapi->imageCount();
 ```
 
@@ -149,7 +149,7 @@ This method allows access to the wrapped GuzzleHttp client. More information is 
 * Returns the wrapped Guzzle client instance
 * @return GuzzleHttp\Client
 */
-$tineyeapi = new tineye\api\TinEyeApi($api_private_key, $api_public_key);
+$tineyeapi = new tineye\api\TinEyeApi($api_key);
 $guzzle_client = $tineyeapi->getClient();
 ```
 

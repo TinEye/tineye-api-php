@@ -38,8 +38,7 @@ class TestTinEyeApiConstructor extends \PHPUnit\Framework\TestCase
     public function testClientOptionsPassthrough()
     {
         $tineyeapi = new TinEyeApi(
-            SANDBOX_PRIVATE_KEY,
-            SANDBOX_PUBLIC_KEY,
+            SANDBOX_API_KEY,
             [
                 'headers' => [
                     'User-Agent' => 'TEST_USER_AGENT',

@@ -29,7 +29,7 @@ class TestTinEyeApiSearchUrl extends \PHPUnit\Framework\TestCase
      */
     public function testClientExceptionOnInvalidKeys()
     {
-        $tineyeapi = new TinEyeApi('Not a Key', 'Also Not a Key');
+        $tineyeapi = new TinEyeApi('Not a Key');
         try {
             $tineyeapi->searchUrl(self::MELON_CAT_URL);
         } catch (ClientException $e) {
