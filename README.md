@@ -5,6 +5,7 @@ is a paid reverse image search solution for professional, commercial or high-vol
 
 # Contents
 - [ Installation ](#installation)
+- [ Migrating from previous versions ](#migrating-from-previous-versions)
 - [ Getting started ](#getting-started)
 - [ Methods ](#methods)
     - [ Common parameters ](#common-parameters)
@@ -24,6 +25,33 @@ Install via [Composer](https://getcomposer.org/). If composer is installed, run 
 
 ```shell
 $ composer require tineye/tineye-api
+```
+
+# Migrating from previous versions
+​
+If you were using any version of the TinEye API library before `2.0.0`, you will need
+to make minor changes to your code.
+​
+The API object is now instantiated using a single key, `api_key`. The value
+of this key is the same as your previous `private_key`. The public key is no 
+longer used.
+​
+#### New ✅ 
+```php
+<?php
+// Sandbox key
+// Note that this is the same value as the old private_key
+$api_key = '6mm60lsCNIB,FwOWjJqA80QZHh9BMwc-ber4u=t^';
+$tineyeapi = new tineye\api\TinEyeApi($api_key);
+```
+​
+#### Old ❌
+```php
+<?php
+// Sandbox keys
+$public_key = 'LCkn,2K7osVwkX95K4Oy';
+$private_key = '6mm60lsCNIB,FwOWjJqA80QZHh9BMwc-ber4u=t^';
+$tineyeapi = new tineye\api\TinEyeApi($private_key, $public_key);
 ```
 
 # Getting started
