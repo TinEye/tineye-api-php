@@ -28,14 +28,14 @@ $ composer require tineye/tineye-api
 ```
 
 # Migrating from previous versions
-​
+
 If you were using any version of the TinEye API library before `2.0.0`, you will need
-to make minor changes to your code.  
-​
+to make minor changes to your code.
+
 The API object is now instantiated using a single key, `api_key`. The value
 of this key is the same as your previous `private_key`. The public key is no 
 longer used.
-​
+
 #### New ✅ 
 ```php
 <?php
@@ -44,7 +44,7 @@ longer used.
 $api_key = '6mm60lsCNIB,FwOWjJqA80QZHh9BMwc-ber4u=t^';
 $tineyeapi = new tineye\api\TinEyeApi($api_key);
 ```
-​
+
 #### Old ❌
 ```php
 <?php
