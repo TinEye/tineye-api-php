@@ -76,7 +76,7 @@ class TinEyeApi
     }
 
     /**
-     * Search for an image using an URL.
+     * Search for an image using a URL.
      *
      * @param string     $url    Image URL to be downloaded and searched
      * @param array|null $params
