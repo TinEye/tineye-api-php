@@ -29,7 +29,7 @@ class TestTinEyeApiRemainingSearches extends \PHPUnit\Framework\TestCase
      */
     public function testExceptionOnFailedRequest()
     {
-        $tineyeapi = new TinEyeApi('Not a Key', 'Also Not a Key', [], 'Https://thisisnotcorrect.tineye');
+        $tineyeapi = new TinEyeApi('Not a Key', [], 'https://thisisnotcorrect.tineye');
         try {
             $tineyeapi->remainingSearches();
         } catch (ConnectException $e) {

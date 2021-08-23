@@ -50,7 +50,7 @@ class TestTinEyeApiSearchData extends \PHPUnit\Framework\TestCase
      */
     public function testConnectionException()
     {
-        $tineyeapi = new TinEyeApi('Not a Key', 'Also Not a Key', [], 'https://thisisnotcorrect.tineye');
+        $tineyeapi = new TinEyeApi('Not a Key', [], 'https://thisisnotcorrect.tineye');
         try {
             $tineyeapi->searchData(
                 fopen('tests/meloncat.jpg', 'r'),
@@ -66,7 +66,7 @@ class TestTinEyeApiSearchData extends \PHPUnit\Framework\TestCase
      */
     public function testClientExceptionOnInvalidKeys()
     {
-        $tineyeapi = new TinEyeApi('Not a Key', 'Also Not a Key');
+        $tineyeapi = new TinEyeApi('Not a Key');
         try {
             $tineyeapi->searchUrl(self::MELON_CAT_URL);
             $this->fail();
@@ -80,7 +80,7 @@ class TestTinEyeApiSearchData extends \PHPUnit\Framework\TestCase
      */
     public function testJSONDecodeError()
     {
-        $tineyeapi = new TinEyeApi('Not a Key', 'Also Not a Key', [], "https://tineye.com");
+        $tineyeapi = new TinEyeApi('Not a Key', [], "https://tineye.com");
         try {
             $tineyeapi->searchUrl(self::MELON_CAT_URL);
             $this->fail();

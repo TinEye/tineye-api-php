@@ -16,6 +16,6 @@ class TestTinEyeApiImageCount extends \PHPUnit\Framework\TestCase
         $tineyeapi = new TinEyeApi();
         $search_result = $tineyeapi->imageCount();
         $this->assertTrue($search_result['code'] === 200);
-        $this->assertTrue($search_result['results'] > 33884049056);
+        $this->assertTrue($search_result['results'] > 45000000000);
     }
 }
