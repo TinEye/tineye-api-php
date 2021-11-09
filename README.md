@@ -164,7 +164,7 @@ Use this method to get the number and images currently indexed by TinEye
 * @return Array Multidimensional array of the returned JSON
 */
 $tineyeapi = new tineye\api\TinEyeApi($api_key);
-$search_bundles = $tineyeapi->imageCount();
+$image_count = $tineyeapi->imageCount();
 ```
 
 ## Get the HTTP client
